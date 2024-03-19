@@ -17,6 +17,15 @@ The system utilizes different types of buffers:
 - **Bounded Buffers**: Used by producers and the co-editors to store a fixed number of news items. 
 - **Unbounded Buffers**: Used by the dispatcher to store edited news items. These buffers dynamically resize to accommodate any number of items.
 
+## How to Run
+To compile the program, execute the following command:
+```
+make
+```
+Once compiled, run the program with the provided `config.txt` file as an argument:
+```
+./news_broadcasting.out config.txt
+```
 
 ## Synchronization implementation
 
@@ -36,15 +45,6 @@ For instance, each bounded buffer is associated with two semaphores: one to trac
 
 By coordinating access to buffers using mutexes and semaphores, this program ensures thread safety and prevents data inconsistencies, facilitating smooth communication between different components of the news broadcasting system.
 
-## How to Run and Use
-To compile the program, execute the following command:
-```
-make
-```
-Once compiled, run the program with the provided `config.txt` file as an argument:
-```
-./news_broadcasting.out config.txt
-```
 
 ## Configuration File
 The `config.txt` file specifies the details aboutu the co-editor's queue size and describes the necessary producer details.At first, Each block of three lines represents details for a producer, including the producer ID, the number of news items to generate, and the producer's bounded queue size. The final number in the configuration file represents the co-editor's bounded queue size. Finslly, the configuration file must end with a new line character. An example `config.txt` file is attached to thie repository and can be used and modified as needed. 
